@@ -6,15 +6,77 @@
   <title>Intel: Sustainability Through the Ages</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
-  <script>
-    // Auto-detect RTL language
-    const rtlLangs = ['ar', 'he', 'fa', 'ur'];
-    const userLang = navigator.language || navigator.userLanguage;
-    if (rtlLangs.includes(userLang.split('-')[0])) {
-      document.documentElement.setAttribute('dir', 'rtl');
+  <style>
+    /* ===== Scrollable Timeline Layout ===== */
+    .timeline-scroll {
+      background-color: #f0f4f8;
     }
-  </script>
+
+    .timeline-wrapper {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      padding: 1rem;
+      scroll-snap-type: x mandatory;
+    }
+
+    .timeline-card {
+      flex: 0 0 300px;
+      background-color: #0071c5;
+      border-radius: 8px;
+      padding: 1rem;
+      scroll-snap-align: start;
+      transition: background-color 0.3s ease;
+      overflow: hidden;
+      position: relative;
+      height: 350px;
+      color: white;
+    }
+
+    .timeline-card:hover {
+      background-color: #005fa3;
+    }
+
+    .year-overlay {
+      font-size: 2rem;
+      font-weight: bold;
+      color: white;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+
+    .timeline-card:hover .year-overlay {
+      opacity: 0;
+    }
+
+    .timeline-img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .timeline-card:hover .timeline-img {
+      opacity: 1;
+    }
+
+    .timeline-description {
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .timeline-card:hover .timeline-description {
+      opacity: 1;
+    }
+  </style>
 </head>
 <body>
 
@@ -25,155 +87,92 @@
     <p>Explore Intel's journey through time, discovering how our commitment to innovation has shaped a more sustainable future for technology and our planet.</p>
   </header>
 
-  <!-- Timeline Section -->
-  <section class="container my-5">
-    <div class="row row-cols-1 row-cols-md-2 g-4">
+  <!-- Scrollable Timeline -->
+  <section class="timeline-scroll">
+    <div class="timeline-wrapper">
 
-      <!-- Timeline Cards -->
-      <div class="col">
-        <div class="card h-100">
-          <img src="img/1.jpg" class="card-img-top" alt="Intel Founded in 1968" />
-          <div class="card-body">
-            <div class="timeline-year">1968</div>
-            <h3 class="card-title">Intel Founded</h3>
-            <p class="card-text">Robert Noyce and Gordon Moore rename NM Electronics to Intel Corporation...</p>
-          </div>
+      <div class="timeline-card">
+        <div class="year-overlay">1968</div>
+        <img src="img/1.jpg" alt="Intel Founded" class="timeline-img" />
+        <div class="timeline-description">
+          <h3>Intel Founded</h3>
+          <p>Robert Noyce and Gordon Moore rename NM Electronics to Intel Corporation...</p>
         </div>
       </div>
 
-      <div class="col">
-        <div class="card h-100">
-          <img src="img/2.jpg" class="card-img-top" alt="First Microprocessor in 1971" />
-          <div class="card-body">
-            <div class="timeline-year">1971</div>
-            <h3 class="card-title">First Microprocessor</h3>
-            <p class="card-text">Intel debuts the 4004, the world's first commercial microprocessor...</p>
-          </div>
+      <div class="timeline-card">
+        <div class="year-overlay">1971</div>
+        <img src="img/2.jpg" alt="First Microprocessor" class="timeline-img" />
+        <div class="timeline-description">
+          <h3>First Microprocessor</h3>
+          <p>Intel debuts the 4004, the world's first commercial microprocessor...</p>
         </div>
       </div>
 
-      <div class="col">
-        <div class="card h-100">
-          <img src="img/3.jpg" class="card-img-top" alt="8086 Processor in 1978" />
-          <div class="card-body">
-            <div class="timeline-year">1978</div>
-            <h3 class="card-title">8086 Processor</h3>
-            <p class="card-text">Launch of the 8086 processor, establishing the x86 architecture...</p>
-          </div>
+      <div class="timeline-card">
+        <div class="year-overlay">1978</div>
+        <img src="img/3.jpg" alt="8086 Processor" class="timeline-img" />
+        <div class="timeline-description">
+          <h3>8086 Processor</h3>
+          <p>Launch of the 8086 processor, establishing the x86 architecture...</p>
         </div>
       </div>
 
-      <div class="col">
-        <div class="card h-100">
-          <img src="img/4.jpg" class="card-img-top" alt="386 Processor in 1985" />
-          <div class="card-body">
-            <div class="timeline-year">1985</div>
-            <h3 class="card-title">386 Processor</h3>
-            <p class="card-text">Intel introduces the 386 processor with 32-bit architecture...</p>
-          </div>
+      <div class="timeline-card">
+        <div class="year-overlay">1985</div>
+        <img src="img/4.jpg" alt="386 Processor" class="timeline-img" />
+        <div class="timeline-description">
+          <h3>386 Processor</h3>
+          <p>Intel introduces the 386 processor with 32-bit architecture...</p>
         </div>
       </div>
 
-      <div class="col">
-        <div class="card h-100">
-          <img src="onur-binay-qUj6wnReX4o-unsplash (1).jpg" class="card-img-top" alt="Peak GHG Emissions in 2006" />
-          <div class="card-body">
-            <div class="timeline-year">2006</div>
-            <h3 class="card-title">Peak GHG Emissions</h3>
-            <p class="card-text">Intel hits its highest annual greenhouse gas emissions...</p>
-          </div>
+      <div class="timeline-card">
+        <div class="year-overlay">2006</div>
+        <img src="onur-binay-qUj6wnReX4o-unsplash (1).jpg" alt="Peak GHG Emissions" class="timeline-img" />
+        <div class="timeline-description">
+          <h3>Peak GHG Emissions</h3>
+          <p>Intel hits its highest annual greenhouse gas emissions...</p>
         </div>
       </div>
 
-      <div class="col">
-        <div class="card h-100">
-          <img src="boliviainteligente-JMi-5VXOLEs-unsplash.jpg" class="card-img-top" alt="RISE Strategy in 2020" />
-          <div class="card-body">
-            <div class="timeline-year">2020</div>
-            <h3 class="card-title">RISE Strategy</h3>
-            <p class="card-text">Intel launches its RISE strategy and 2030 goals...</p>
-          </div>
+      <div class="timeline-card">
+        <div class="year-overlay">2020</div>
+        <img src="boliviainteligente-JMi-5VXOLEs-unsplash.jpg" alt="RISE Strategy" class="timeline-img" />
+        <div class="timeline-description">
+          <h3>RISE Strategy</h3>
+          <p>Intel launches its RISE strategy and 2030 goals...</p>
         </div>
       </div>
 
-      <div class="col">
-        <div class="card h-100">
-          <img src="rubaitul-azad-yYqJKJ0GO64-unsplash.jpg" class="card-img-top" alt="Net-Zero By 2040 in 2022" />
-          <div class="card-body">
-            <div class="timeline-year">2022</div>
-            <h3 class="card-title">Net-Zero By 2040</h3>
-            <p class="card-text">Intel commits to net-zero greenhouse gas emissions by 2040...</p>
-          </div>
+      <div class="timeline-card">
+        <div class="year-overlay">2022</div>
+        <img src="rubaitul-azad-yYqJKJ0GO64-unsplash.jpg" alt="Net-Zero By 2040" class="timeline-img" />
+        <div class="timeline-description">
+          <h3>Net-Zero By 2040</h3>
+          <p>Intel commits to net-zero greenhouse gas emissions by 2040...</p>
         </div>
       </div>
 
-      <div class="col">
-        <div class="card h-100">
-          <img src="badar-ul-islam-majid-VwwSO1s5m68-unsplash.jpg" class="card-img-top" alt="Renewable Electricity in 2023" />
-          <div class="card-body">
-            <div class="timeline-year">2023</div>
-            <h3 class="card-title">Renewable Electricity</h3>
-            <p class="card-text">Intel achieves 99% renewable electricity usage worldwide...</p>
-          </div>
+      <div class="timeline-card">
+        <div class="year-overlay">2023</div>
+        <img src="badar-ul-islam-majid-VwwSO1s5m68-unsplash.jpg" alt="Renewable Electricity" class="timeline-img" />
+        <div class="timeline-description">
+          <h3>Renewable Electricity</h3>
+          <p>Intel achieves 99% renewable electricity usage worldwide...</p>
         </div>
       </div>
 
-      <div class="col">
-        <div class="card h-100">
-          <img src="ryan-tpAyLp9Ro50-unsplash.jpg" class="card-img-top" alt="Sustainability Summit in 2024" />
-          <div class="card-body">
-            <div class="timeline-year">2024</div>
-            <h3 class="card-title">Sustainability Summit</h3>
-            <p class="card-text">Intel hosts its first Sustainability Summit...</p>
-          </div>
+      <div class="timeline-card">
+        <div class="year-overlay">2024</div>
+        <img src="ryan-tpAyLp9Ro50-unsplash.jpg" alt="Sustainability Summit" class="timeline-img" />
+        <div class="timeline-description">
+          <h3>Sustainability Summit</h3>
+          <p>Intel hosts its first Sustainability Summit...</p>
         </div>
       </div>
 
     </div>
   </section>
-
-  <!-- Three-Column Section -->
-  <section class="container my-5">
-    <div class="row text-center">
-      <div class="col-md-4 mb-4">
-        <h2><i class="bi bi-bar-chart-line"></i> RISE Strategy</h2>
-        <p>Intel sets ambitious 2030 goals under its RISE strategy...</p>
-        <a href="#" class="btn btn-outline-primary">Learn More</a>
-      </div>
-      <div class="col-md-4 mb-4">
-        <h2><i class="bi bi-shield-check"></i> Commitment</h2>
-        <p>Intel pledges net-zero emissions by 2040...</p>
-        <a href="#" class="btn btn-outline-primary">Learn More</a>
-      </div>
-      <div class="col-md-4 mb-4">
-        <h2><i class="bi bi-droplet-half"></i> Water & Waste</h2>
-        <p>Intel conserves water and promotes circular economy...</p>
-        <a href="#" class="btn btn-outline-primary">Learn More</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Subscription Form -->
-  <section class="container my-5">
-    <h2 class="text-center">Subscribe to our Newsletter</h2>
-    <form class="row g-3 needs-validation" novalidate>
-      <div class="col-md-6 offset-md-3">
-        <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email" required aria-describedby="emailHelp" />
-        <div class="invalid-feedback">Please enter a valid email.</div>
-      </div>
-      <div class="col-12 text-center">
-        <button class="btn btn-primary" type="submit">Subscribe</button>
-      </div>
-    </form>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-light text-center p-3">
-    <p>&copy; 2025 Intel Corporation. All rights reserved.</p>
-  </footer>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
