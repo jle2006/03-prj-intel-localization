@@ -1,0 +1,68 @@
+/* ===== Scrollable Timeline Layout ===== */
+.timeline-scroll {
+  background-color: #f0f4f8;
+}
+
+.timeline-wrapper {
+  scroll-snap-type: x mandatory;
+  gap: 1rem;
+}
+
+.timeline-card {
+  flex: 0 0 300px;
+  background-color: #0071c5;
+  border-radius: 8px;
+  padding: 1rem;
+  scroll-snap-align: start;
+  transition: background-color 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  height: 350px;
+}
+
+.timeline-card:hover {
+  background-color: #005fa3;
+}
+
+/* ===== Year Overlay ===== */
+.year-overlay {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.timeline-card:hover .year-overlay {
+  opacity: 0;
+}
+
+/* ===== Image Styling ===== */
+.timeline-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.timeline-card:hover .timeline-img {
+  opacity: 1;
+}
+
+/* ===== Description Reveal ===== */
+.timeline-description {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.timeline-card:hover .timeline-description {
+  opacity: 1;
+}
