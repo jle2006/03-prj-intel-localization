@@ -4,6 +4,10 @@
 }
 
 .timeline-wrapper {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem;
   scroll-snap-type: x mandatory;
   gap: 1rem;
 }
@@ -18,6 +22,7 @@
   overflow: hidden;
   position: relative;
   height: 350px;
+  color: white;
 }
 
 .timeline-card:hover {
