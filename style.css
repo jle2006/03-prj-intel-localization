@@ -9,7 +9,6 @@
   gap: 1rem;
   padding: 1rem;
   scroll-snap-type: x mandatory;
-  gap: 1rem;
 }
 
 .timeline-card {
@@ -29,7 +28,6 @@
   background-color: #005fa3;
 }
 
-/* ===== Year Overlay ===== */
 .year-overlay {
   font-size: 2rem;
   font-weight: bold;
@@ -43,31 +41,3 @@
   pointer-events: none;
 }
 
-.timeline-card:hover .year-overlay {
-  opacity: 0;
-}
-
-/* ===== Image Styling ===== */
-.timeline-img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 1rem;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.timeline-card:hover .timeline-img {
-  opacity: 1;
-}
-
-/* ===== Description Reveal ===== */
-.timeline-description {
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.timeline-card:hover .timeline-description {
-  opacity: 1;
-}
