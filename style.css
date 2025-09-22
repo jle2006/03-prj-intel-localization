@@ -23,6 +23,26 @@
   height: 350px;
   color: white;
 }
+.timeline-card img {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.timeline-card:hover img {
+  opacity: 1;
+  pointer-events: auto;
+}
+.timeline-description {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.timeline-card:hover .timeline-description {
+  opacity: 1;
+  pointer-events: auto;
+}
 
 .timeline-card:hover {
   background-color: #005fa3;
