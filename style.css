@@ -20,18 +20,25 @@
   transition: background-color 0.3s ease;
   overflow: hidden;
   position: relative;
-  height: 350px;
+  max-height: 350px;
   color: white;
 }
 .timeline-card img {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
+  width: 100%;
+  
 }
-
+#renewable {
+  height: 150px;
+  width: 500px;
+}
 .timeline-card:hover img {
   opacity: 1;
   pointer-events: auto;
+  max-height: 400px;
+  object-fit: cover;
 }
 .timeline-description {
   opacity: 0;
